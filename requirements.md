@@ -1,52 +1,35 @@
-Software Requirements
-Vision
-Minimum Length: 3-5 sentences
+# Software Requirements
 
-What is the vision of this product?
+## Vision
 
-What pain point does this project solve?
+This application uses the fun of playing a game to help people improve mental capabilities and memory. This is accomplished by having the player recall where images are hidden on a grid of concealed items, in an attempt to identify matching pairs. The user receives a score according to their level of success, giving them an opportunity to beat previous high scores and see their memory improve over time.
 
-Why should we care about your product?
+## Scope (In/Out)
 
-Scope (In/Out)
-IN - What will your product do
-Describe the individual features that your product will do.
-High overview of each. Only need to list 4-5
-Example:
-The web app will provide information to the users about all the different Cat Cafe’s in the area
-The web app will provide both walking and driving directions to each of the destinations
-Users will be able to “Star” their favorite shops.
-Each shop will contain reviews of the customer’s experiences
-OUT - What will your product not do.
-These should be features that you will make very clear from the beginning that you will not do during development. These should be limited and very few. Pick your battles wisely. This should only be 1 or 2 things. Example: My website will never turn into an IOS or Android app.
-Minimum Viable Product vs
-What will your MVP functionality be?
+IN:
 
-What are your stretch goals?
+- The application will display tiles on the screen that represent hidden images for the user to match into pairs
+- App will allow users to click on tiles to select them and give results of success or failure of match to user, and score accordingly
+- App will retain scores and high score in local storage
 
-Stretch
-What stretch goals are you going to aim for?
+OUT:
 
-Functional Requirements
-List the functionality of your product. This will consist of tasks such as the following:
+- App will not retain stores scores beyond the current browser and user
 
-An admin can create and delete user accounts
-A user can update their profile information
-A user can search all of the products in the inventory
-Data Flow
-Describe the flow of data in your application. Write out what happens from the time the user begins using the app to the time the user is done with the app. Think about the “Happy Path” of the application. Describe through visuals and text what requests are made, and what data is processed, in addition to any other details about how the user moves through the site.
+## MVP functionality
 
-Non-Functional Requirements (301 & 401 only)
-Non-functional requirements are requirements that are not directly related to the functionality of the application but still important to the app.
+Users need to be able to attempt to find pairs of images from a group of hidden images. They will only be allowed to uncover two images at a time. When a match is found, their score is incremented. If the two they uncover do not match they are re-hidden and the game continues. A high score is kept in local storage for comparison to the current game score. Current score and total attempts/guesses will be stored locally and displayed.
 
-Examples include:
+## Stretch Goals
 
-Security
-Usability
-Testability
-etc….
-Pick 2 non-functional requirements and describe their functionality in your application.
+- Add animation/transformation top hover and click actions over tiles
+- Add ability to display and compare previous score results graphically
 
-If you are stuck on what non-functional requirements are, do a quick online search and do some research. Write a minimum of 3-5 sentences to describe how the non-functional requirements fits into your app.
+## Functional Requirements
 
-You MUST describe what the non-functional requirement is and how it will be implemented. Simply saying “Our project will be testable for testibility” is NOT acceptable. Tell us how, why, and what.
+- User can select tiles by clicking on them, to find hidden pairs
+- User can see current and high scores on screen
+
+## Data Flow
+
+See [Domain Model](./domain-model.png)
