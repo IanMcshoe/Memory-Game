@@ -1,0 +1,120 @@
+/* GRID AREA FOR OVERALL PAGE LAYOUT*/
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  height: 100vh;
+
+  display: grid;
+  grid-template-areas:
+    'header header header header header'
+    'main main main main main'
+    'footer footer footer footer footer';
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 150px 1fr 70px;
+}
+
+header,
+footer,
+main,
+nav {
+  background-color: steelblue;
+  color: #fff;
+  padding: 20px;
+  border: rgb(0, 0, 0) 1px solid;
+}
+
+header {
+  grid-area: header;
+}
+
+main {
+  grid-area: main;
+}
+
+
+footer {
+  grid-area: footer;
+}
+
+/* GRID AREA FOR HEADER*/
+
+header {
+  display: grid;
+  grid-template-columns: 200px 1fr 1fr 1fr 200px;
+  grid-template-areas:
+    'logo . score . stats';
+}
+
+.logo,
+.score,
+.stats {
+  border: solid thin black;
+}
+
+.logo {
+  grid-area: logo;
+}
+
+.score {
+  grid-area: score;
+  justify-self: center;
+}
+
+.stats {
+  grid-area: stats;
+  justify-self: right;
+}
+
+
+
+/* GRID AREA FOR MAIN*/
+
+main {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+  grid-template-areas:
+    'tiles tiles tiles tiles tiles';
+}
+
+.tiles {
+  grid-area: tiles;
+}
+
+.tiles {
+  border: solid thin black;
+}
+
+
+.tiles {
+  grid-area: tiles;
+  justify-self: center;
+} 
+
+/* GRID AREA FOR TILES*/
+
+.tiles {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-areas:
+    '. tile tile tile .';
+}
+
+.tile {
+  border: solid thin black;
+}
+
+.tile {
+  grid-area: tile;
+  justify-self: center;
+} 
+
+
+
+/* GRID AREA FOR FOOTER */
+
+footer {
+  text-align: center;
+}
