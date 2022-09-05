@@ -28,8 +28,7 @@ let tileImages = [
   'train.jpg',
   'van.jpg',
 ];
-
-let tiles = []; // Array taht will hold the data for all the tiles currently in play
+let tiles = []; // Array that will hold the data for all the tiles currently in play
 
 function initializeGame() {
   switch (numberTiles) {
@@ -46,7 +45,6 @@ function initializeGame() {
   }
 
   // Create array of row positions
-  let randomRow = 0;
   let foundNumber = false;
   for (let x = 0; x < numberRows; x++) {
     while (!foundNumber) {
@@ -98,7 +96,6 @@ function generateRandomPositionArray() {
   // Create an array with tile names, image file locations and position on the screen
   for (let i = 0; i < positions.length / 2; i++) {
     addTile({
-      // imageName: tileImages[i],
       imageName: tileImages[i].split('.')[0],
       imagePath: `./assets/${tileImages[i]}`,
       tilePosition: positions[i],
@@ -106,7 +103,6 @@ function generateRandomPositionArray() {
   }
   for (let i = positions.length / 2; i < positions.length; i++) {
     addTile({
-      // imageName: tileImages[i - positions.length / 2],
       imageName: tileImages[i - positions.length / 2].split('.')[0],
       imagePath: `./assets/${tileImages[i - positions.length / 2]}`,
       tilePosition: positions[i],
