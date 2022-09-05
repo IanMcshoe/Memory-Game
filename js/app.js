@@ -7,26 +7,26 @@ let positions = [];
 let positionRows = [];
 let positionColumns = [];
 let tileImages = [
-  'breakfast.jpg',
-  'bus.jpg',
-  'bycicle.jpg',
-  'cable-car.jpg',
-  'canoe.jpg',
-  'checking.jpg',
-  'compass.jpg',
-  'cruise.jpg',
-  'desert.jpg',
-  'distance.jpg',
-  'flippers.jpg',
-  'helicopter.jpg',
-  'keycard.jpg',
-  'luggage.jpg',
-  'mountain.jpg',
-  'plane.jpg',
-  'scooter.jpg',
-  'time.jpg',
-  'train.jpg',
-  'van.jpg',
+  'breakfast.png',
+  'bus.png',
+  'bicycle.png',
+  'cable-car.png',
+  'canoe.png',
+  'checking.png',
+  'compass.png',
+  'cruise.png',
+  'desert.png',
+  'distance.png',
+  'flippers.png',
+  'helicopter.png',
+  'keycard.png',
+  'luggage.png',
+  'mountain.png',
+  'plane.png',
+  'scooter.png',
+  'time.png',
+  'train.png',
+  'van.png',
 ];
 let tiles = []; // Array that will hold the data for all the tiles currently in play
 
@@ -107,6 +107,15 @@ function generateRandomPositionArray() {
       imagePath: `./assets/${tileImages[i - positions.length / 2]}`,
       tilePosition: positions[i],
     });
+  }
+}
+
+// Populate the tiles on the screen from the tiles array
+function displayTiles() {
+  for (let tile of tiles) {
+    let currentTile = document.getElementById(tile.tilePosition);
+    currentTile.src = tile.imagePath;
+    currentTile.alt = tile.imageName;
   }
 }
 
