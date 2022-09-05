@@ -113,3 +113,7 @@ function generateRandomPositionArray() {
     });
   }
 }
+
+initializeGame();
+
+console.log(tiles);
