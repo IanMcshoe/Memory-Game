@@ -11,11 +11,16 @@
 <body>
     <header>
         <div class="logo"><h1>MEMORY GAME</h1></div>
-        <div class="score">High Score</div>
+        <div class="score">
+            <p id="high-score">High Score</p>
+        </div>
         <div class="stats">
             <p id="current-score">0</p>
             <p id="current-attempts">0</p>
-        </div>      
+        </div> 
+        <div id="start-btn">
+            <button class="glow-on-hover" type="button" id="start-btn"> START </button>
+        </div>     
     </header>  
     <main>
 
@@ -43,7 +48,6 @@
             <div class="tile" id="pos-5-4"><img src="https://via.placeholder.com/150x150"></div>
         </div>
         <div class="reset">
-            <button class="glow-on-hover" type="button" id="start-btn"> START </button>
             <button class="glow-on-hover" type="button" id="reset-btn"> RESET </button>
         </div>
     </main>

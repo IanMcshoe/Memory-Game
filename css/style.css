@@ -52,8 +52,11 @@ header {
   background-color: rgb(231, 243, 236);
   border-bottom: solid 0px rgb(225, 225, 225);
   grid-template-columns: 200px 1fr 1fr 1fr 200px;
+  grid-template-rows: 1fr 1fr;
   grid-template-areas:
-    'logo . score . stats';
+    'logo . score . stats'
+    '. . . . start'
+    ;
 }
 
 .logo,
@@ -83,7 +86,10 @@ header {
   align-self: center;
 }
 
-
+#start-btn {
+  grid-area: start;
+  justify-self: center;
+}
 
 /* GRID AREA FOR MAIN*/
 
