@@ -51,6 +51,10 @@ function initializeGame() {
       alert('ERROR: Number of tiles is not valid!');
   }
 
+  // Display Current High Score from Local Store or 0 if none
+  document.querySelector('.score').textContent = `High-Score: ${accessLocalStorage('', 'get')}`;
+  // document.querySelector('#high-score').textContent = accessLocalStorage('', 'get');
+
   // Create array of row positions
   let foundNumber = false;
   for (let x = 0; x < numberRows; x++) {
@@ -170,8 +174,26 @@ function handleClickTile(event) {
   }
 }
 
+function accessLocalStorage (data, setOrGet) {
+  if (setOrGet === 'set') {
+    localStorage.setItem('highScore', JSON.stringify(data));
+    return true;
+  } else if (setOrGet === 'get') {
+    let returnData = JSON.parse(localStorage.getItem('highScore'));
+    if (returnData !== null) {
+      return returnData;
+    } else {
+      return 0;
+      }
+  } else {
+    alert('ERROR: Invalid set or get!');
+  }
+}
+
 initializeGame();
 displayTiles();
+
+
 
 // Listen for user clicking the tiles area and call response
 document.querySelector('.tiles').addEventListener('click', handleClickTile);
