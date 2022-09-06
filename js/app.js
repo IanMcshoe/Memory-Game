@@ -52,7 +52,9 @@ function initializeGame() {
   }
 
   // Display Current High Score from Local Store or 0 if none
-  document.querySelector('.score').textContent = `High-Score: ${accessLocalStorage('', 'get')}`;
+  document.querySelector(
+    '.score'
+  ).textContent = `High-Score: ${accessLocalStorage('', 'get')}`;
   // document.querySelector('#high-score').textContent = accessLocalStorage('', 'get');
 
   // Create array of row positions
@@ -124,11 +126,9 @@ function generateRandomPositionArray() {
 // Populate the tiles on the screen from the tiles array
 function displayTiles() {
   for (let tile of tiles) {
-    // let currentTile = document.getElementById(tile.tilePosition);
     let currentTile = document.querySelector(`#${tile.tilePosition} img`);
     currentTile.src = tile.imagePath;
     currentTile.alt = tile.imageName;
-    // currentTile.name = tile.imageName;
   }
 }
 
@@ -142,23 +142,25 @@ function handleClickTile(event) {
       clickedElement !== firstTileSelected[1]
     ) {
       if (clickedImage == firstTileSelected[0]) {
-        // score increment
+        // Increment score
         document.getElementById('current-score').textContent =
           Number(document.getElementById('current-score').textContent) + 1;
-        // attempts increment
+        // Increment attempts
         document.getElementById('current-attempts').textContent =
           Number(document.getElementById('current-attempts').textContent) + 1;
-        // tiles hidden
-        // document.getElementById(clickedElement).classList.add('hidden');
-        // document.getElementById(firstTileSelected[1]).classList.add('hidden');
-        let currentTile = document.querySelector(`#${clickedElement} img`);
-        let previousTile = document.querySelector(
-          `#${firstTileSelected[1]} img`
-        );
-        currentTile.src = 'https://via.placeholder.com/150x150/FFFFFF';
-        currentTile.alt = '';
-        previousTile.src = 'https://via.placeholder.com/150x150/FFFFFF';
-        previousTile.alt = '';
+        // Hide matched tiles
+        document.getElementById(clickedElement).classList.add('hide-shadow');
+        document
+          .getElementById(firstTileSelected[1])
+          .classList.add('hide-shadow');
+        // let currentTile = document.querySelector(`#${clickedElement} img`);
+        // let previousTile = document.querySelector(
+        //   `#${firstTileSelected[1]} img`
+        // );
+        // currentTile.src = 'https://via.placeholder.com/150x150/FFFFFF';
+        // currentTile.alt = '';
+        // previousTile.src = 'https://via.placeholder.com/150x150/FFFFFF';
+        // previousTile.alt = '';
       } else {
         // re-flip tiles
 
@@ -174,7 +176,22 @@ function handleClickTile(event) {
   }
 }
 
-function accessLocalStorage (data, setOrGet) {
+function handleButtonClick(event) {
+  let clickedElement = event.target.id;
+  if (clickedElement == 'start-btn') {
+    //Start Button
+  } else if (clickedElement == 'reset-btn') {
+    if (
+      confirm('Are you sure you want to reset the score and restart the game?')
+    ) {
+      window.location.reload();
+    }
+  } else {
+    alert('ERROR: Undefined button element!');
+  }
+}
+
+function accessLocalStorage(data, setOrGet) {
   if (setOrGet === 'set') {
     localStorage.setItem('highScore', JSON.stringify(data));
     return true;
@@ -184,16 +201,22 @@ function accessLocalStorage (data, setOrGet) {
       return returnData;
     } else {
       return 0;
-      }
+    }
   } else {
-    alert('ERROR: Invalid set or get!');
+    alert('ERROR: Invalid set or get argument!');
   }
 }
 
 initializeGame();
 displayTiles();
 
-
-
 // Listen for user clicking the tiles area and call response
 document.querySelector('.tiles').addEventListener('click', handleClickTile);
+
+// Listen for user clicking a button
+document
+  .getElementById('start-btn')
+  .addEventListener('click', handleButtonClick);
+document
+  .getElementById('reset-btn')
+  .addEventListener('click', handleButtonClick);
