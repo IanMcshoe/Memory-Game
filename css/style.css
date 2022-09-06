@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,300;0,700;1,100;1,300;1,700&display=swap');
+
 /* GRID AREA FOR OVERALL PAGE LAYOUT*/
 
 body {
@@ -12,6 +14,12 @@ body {
     'footer footer footer footer footer';
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 150px 1fr 70px;
+}
+
+h1 {
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 300;
+  font-size: 24px;
 }
 
 header,
@@ -73,9 +81,18 @@ header {
 main {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 50px 1fr 50px;
   gap: 15px;
   grid-template-areas:
-    'tiles tiles tiles tiles tiles';
+    'h1 h1 h1 h1 h1'
+    'tiles tiles tiles tiles tiles'
+    '. reset reset reset .'
+    ;
+}
+
+main h1 {
+  grid-area: h1;
+  justify-self: center;
 }
 
 .tiles {
@@ -85,7 +102,8 @@ main {
   gap: 15px;
   grid-template-columns: repeat(5, 1fr);
   grid-template-areas:
-    '. tile tile tile .';
+    '. tile tile tile .'
+    ;
 }
 
 /* .tile {
@@ -101,12 +119,45 @@ main {
 }
 
 .tile img {
-  height: 150px;
-  width: 150px;
+  height: 115px;
+  width: 115px;
+  padding: 15px;
+}
+
+button {
+  background-color: #04AA6D;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 15px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.reset {
+  grid-area: reset;
+  justify-self: center;
+  /* padding-right: 50px; */
+}
+
+#reset-btn {
+  width: 120px;
+}
+
+#start-btn {
+  width: 120px;
 }
 
 /* GRID AREA FOR FOOTER */
 
 footer {
   text-align: center;
+  color: rgb(194, 190, 190);
+}
+
+.hidden {
+display: none;
 }
