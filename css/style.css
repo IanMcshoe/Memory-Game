@@ -29,7 +29,7 @@ nav {
   background-color: white;
   color: black;
   padding: 20px;
-  border: rgb(0, 0, 0) 1px solid;
+  border: rgb(0, 0, 0) 0px solid;
 }
 
 header {
@@ -49,6 +49,8 @@ footer {
 
 header {
   display: grid;
+  background-color: rgb(231, 243, 236);
+  border-bottom: solid 0px rgb(225, 225, 225);
   grid-template-columns: 200px 1fr 1fr 1fr 200px;
   grid-template-areas:
     'logo . score . stats';
@@ -57,21 +59,28 @@ header {
 .logo,
 .score,
 .stats {
-  border: solid thin black;
+  border: solid 0px black;
 }
 
 .logo {
   grid-area: logo;
+  align-self: center;
+}
+
+.stats p {
+  text-align: right;
 }
 
 .score {
   grid-area: score;
   justify-self: center;
+  align-self: center;
 }
 
 .stats {
   grid-area: stats;
   justify-self: right;
+  align-self: center;
 }
 
 
@@ -81,7 +90,7 @@ header {
 main {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: 50px 1fr 50px;
+  grid-template-rows: 50px 1fr 100px;
   gap: 15px;
   grid-template-areas:
     'h1 h1 h1 h1 h1'
@@ -140,7 +149,6 @@ button {
 .reset {
   grid-area: reset;
   justify-self: center;
-  /* padding-right: 50px; */
 }
 
 #reset-btn {
@@ -151,13 +159,89 @@ button {
   width: 120px;
 }
 
+/* BUTTON GLOW EFFECT*/
+
+.glow-on-hover {
+  width: 220px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  margin: 25px;
+}
+
+.glow-on-hover:before {
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+}
+
+.glow-on-hover:active {
+  color: #000
+}
+
+.glow-on-hover:active:after {
+  background: transparent;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 400% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
 /* GRID AREA FOR FOOTER */
 
 footer {
   text-align: center;
+  background-color: rgb(231, 243, 236);
   color: rgb(194, 190, 190);
 }
 
 .hidden {
 display: none;
 }
+
+
+
+
