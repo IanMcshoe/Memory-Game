@@ -80,7 +80,21 @@ main {
 
 .tiles {
   grid-area: tiles;
+}
+
+.tiles {
+  border: solid thin black;
+}
+
+
+.tiles {
+  grid-area: tiles;
   justify-self: center;
+} 
+
+/* GRID AREA FOR TILES*/
+
+.tiles {
   display: grid;
   gap: 15px;
   grid-template-columns: repeat(5, 1fr);
@@ -90,9 +104,12 @@ main {
 
 .tile {
   border: solid thin black;
+}
+
+.tile {
   grid-area: tile;
   justify-self: center;
-}
+} 
 
 
 
