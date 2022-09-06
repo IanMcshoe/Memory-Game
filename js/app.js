@@ -120,5 +120,6 @@ function displayTiles() {
 }
 
 initializeGame();
+displayTiles();
 
 console.log(tiles);
