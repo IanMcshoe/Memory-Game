@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    <!-- <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <link rel="reset" href="reset.css">
-    <link rel="style" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Memory Game</title>
 </head>
 <body>
@@ -19,12 +18,15 @@
                 <li><a href="#">Score</a></li>
                 <li><a href="#">Attempt</a></li>
             </ul>
+            <div class="start">
+                <button type="button" id="start-btn"> START </button>
+            </div>
         </nav>      
     </header>  
     <main>
 
         <h1> MEMORY GAME </h1>
-        <div class="all-tiles">
+        <div class="tiles">
             <div class="tile1"><img id="pos-1-1" src="https://via.placeholder.com/150x150"></div>
             <div class="tile2"><img id="pos-1-2" src="https://via.placeholder.com/150x150"></div>
             <div class="tile3"><img id="pos-1-3" src="https://via.placeholder.com/150x150"></div>
@@ -47,8 +49,7 @@
             <div class="tile20"><img id="pos-4-5" src="https://via.placeholder.com/150x150"></div>
         </div>
         <div class="reset">
-            <button type="button"> RESET </button>
-
+            <button type="button" id="reset-btn"> RESET </button>
         </div>
     </main>
     <footer>
