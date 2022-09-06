@@ -38,6 +38,10 @@ let tileImages = [
 ];
 
 function initializeGame() {
+  // Unhide stats (score/attempts) div and hide Start button
+  document.getElementById('start-btn').classList.add('hidden');
+  document.querySelector('.stats').classList.remove('hidden');
+
   switch (numberTiles) {
     case 20:
       numberRows = 4;
@@ -50,12 +54,6 @@ function initializeGame() {
     default:
       alert('ERROR: Number of tiles is not valid!');
   }
-
-  // Display Current High Score from Local Store or 0 if none
-  document.querySelector(
-    '.score'
-  ).textContent = `High-Score: ${accessLocalStorage('', 'get')}`;
-  // document.querySelector('#high-score').textContent = accessLocalStorage('', 'get');
 
   // Create array of row positions
   let foundNumber = false;
@@ -179,7 +177,8 @@ function handleClickTile(event) {
 function handleButtonClick(event) {
   let clickedElement = event.target.id;
   if (clickedElement == 'start-btn') {
-    //Start Button
+    initializeGame();
+    displayTiles();
   } else if (clickedElement == 'reset-btn') {
     if (
       confirm('Are you sure you want to reset the score and restart the game?')
@@ -207,8 +206,14 @@ function accessLocalStorage(data, setOrGet) {
   }
 }
 
-initializeGame();
-displayTiles();
+// Display Current High Score from Local Storage or 0 if none
+document.querySelector(
+  '.score'
+).textContent = `High-Score: ${accessLocalStorage('', 'get')}`;
+// document.querySelector('#high-score').textContent = accessLocalStorage('', 'get');
+
+// Hide stats (score/attempts) div
+document.querySelector('.stats').classList.add('hidden');
 
 // Listen for user clicking the tiles area and call response
 document.querySelector('.tiles').addEventListener('click', handleClickTile);
