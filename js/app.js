@@ -53,6 +53,7 @@ function initializeGame() {
 
   // Display Current High Score from Local Store or 0 if none
   document.querySelector('.score').textContent = `High-Score: ${accessLocalStorage('', 'get')}`;
+  // document.querySelector('#high-score').textContent = accessLocalStorage('', 'get');
 
   // Create array of row positions
   let foundNumber = false;
