@@ -115,31 +115,33 @@ function generateRandomPositionArray() {
 function displayTiles() {
   for (let tile of tiles) {
     let currentTile = document.getElementById(tile.tilePosition);
-    currentTile.src = tile.imagePath;
-    currentTile.alt = tile.imageName;
+    document.querySelector(`#${tile.tilePosition} img`).src = tile.imagePath;
+    document.querySelector(
+      `#${tile.tilePosition} img`
+    ).alt = `Picture of ${tile.imageName}`;
+    currentTile.name = tile.imageName;
   }
 }
 
 function handleClickTile(event) {
-  clickedImage = event.target.alt;
-  clickedElement = event.target.id;
+  let clickedImage = event.target.name;
+  let clickedElement = event.target.id;
   if (typeof clickedElement == 'string') {
     if (firstTileSelected.length !== 0) {
-      if (clickedImage == firstTileSelected) {
-        // score incr and redisplay
+      if (clickedImage == firstTileSelected[0]) {
+        // score increment
         document.getElementById('current-score').textContent =
           Number(document.getElementById('current-score').textContent) + 1;
-        // attempts incr
+        // attempts increment
         document.getElementById('current-attempts').textContent =
           Number(document.getElementById('current-attempts').textContent) + 1;
         // tiles hidden
         document.getElementById(clickedElement).classList.add('hidden');
         document.getElementById(firstTileSelected[1]).classList.add('hidden');
       } else {
-        // re-hide tiles
-        document.getElementById(clickedElement).classList.add('hidden');
-        document.getElementById(firstTileSelected[1]).classList.add('hidden');
-        // attempt incr
+        // re-flip tiles
+
+        // attempt increment
         document.getElementById('current-attempts').textContent =
           Number(document.getElementById('current-attempts').textContent) + 1;
       }
