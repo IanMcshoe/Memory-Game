@@ -96,7 +96,7 @@ main {
     'h1 h1 h1 h1 h1'
     'tiles tiles tiles tiles tiles'
     '. reset reset reset .'
-    ;
+  ;
 }
 
 main h1 {
@@ -112,17 +112,18 @@ main h1 {
   grid-template-columns: repeat(5, 1fr);
   grid-template-areas:
     '. tile tile tile .'
-    ;
+  ;
 }
 
-/* .tile {
-  border: solid thin black;
-  grid-area: tile;
-  justify-self: center;
-} */
-
-.tiles div {
+.tile {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  height: 150px;
+  width: 150px;
+}
+
+
+.hide-shadow {
+  box-shadow: none;
   height: 150px;
   width: 150px;
 }
@@ -239,9 +240,5 @@ footer {
 }
 
 .hidden {
-display: none;
+  display: none;
 }
-
-
-
-
