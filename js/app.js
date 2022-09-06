@@ -1,5 +1,11 @@
 'use strict';
 
+// $(document).ready(function () {
+//   $('.flip-card').click(function () {
+//     $(this).toggleClass('hover');
+//   });
+// });
+
 let numberRows = 0;
 let numberColumns = 0;
 let numberTiles = 20;
@@ -114,20 +120,23 @@ function generateRandomPositionArray() {
 // Populate the tiles on the screen from the tiles array
 function displayTiles() {
   for (let tile of tiles) {
-    let currentTile = document.getElementById(tile.tilePosition);
-    document.querySelector(`#${tile.tilePosition} img`).src = tile.imagePath;
-    document.querySelector(
-      `#${tile.tilePosition} img`
-    ).alt = `Picture of ${tile.imageName}`;
-    currentTile.name = tile.imageName;
+    // let currentTile = document.getElementById(tile.tilePosition);
+    let currentTile = document.querySelector(`#${tile.tilePosition} img`);
+    currentTile.src = tile.imagePath;
+    currentTile.alt = tile.imageName;
+    // currentTile.name = tile.imageName;
   }
 }
 
 function handleClickTile(event) {
-  let clickedImage = event.target.name;
-  let clickedElement = event.target.id;
+  let clickedImage = event.target.alt;
+  let clickedElement = event.target.parentNode.id;
+
   if (typeof clickedElement == 'string') {
-    if (firstTileSelected.length !== 0) {
+    if (
+      firstTileSelected.length !== 0 &&
+      clickedElement !== firstTileSelected[1]
+    ) {
       if (clickedImage == firstTileSelected[0]) {
         // score increment
         document.getElementById('current-score').textContent =
@@ -136,8 +145,16 @@ function handleClickTile(event) {
         document.getElementById('current-attempts').textContent =
           Number(document.getElementById('current-attempts').textContent) + 1;
         // tiles hidden
-        document.getElementById(clickedElement).classList.add('hidden');
-        document.getElementById(firstTileSelected[1]).classList.add('hidden');
+        // document.getElementById(clickedElement).classList.add('hidden');
+        // document.getElementById(firstTileSelected[1]).classList.add('hidden');
+        let currentTile = document.querySelector(`#${clickedElement} img`);
+        let previousTile = document.querySelector(
+          `#${firstTileSelected[1]} img`
+        );
+        currentTile.src = 'https://via.placeholder.com/150x150/FFFFFF';
+        currentTile.alt = '';
+        previousTile.src = 'https://via.placeholder.com/150x150/FFFFFF';
+        previousTile.alt = '';
       } else {
         // re-flip tiles
 
