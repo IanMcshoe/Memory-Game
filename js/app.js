@@ -6,6 +6,8 @@ let numberTiles = 20;
 let positions = [];
 let positionRows = [];
 let positionColumns = [];
+let tiles = []; // Array that will hold the data for all the tiles currently in play
+let firstTileSelected = [];
 let tileImages = [
   'breakfast.png',
   'bus.png',
@@ -28,7 +30,6 @@ let tileImages = [
   'train.png',
   'van.png',
 ];
-let tiles = []; // Array that will hold the data for all the tiles currently in play
 
 function initializeGame() {
   switch (numberTiles) {
@@ -119,7 +120,39 @@ function displayTiles() {
   }
 }
 
+function handleClickTile(event) {
+  clickedImage = event.target.alt;
+  clickedElement = event.target.id;
+  if (typeof clickedElement == 'string') {
+    if (firstTileSelected.length !== 0) {
+      if (clickedImage == firstTileSelected) {
+        // score incr and redisplay
+        document.getElementById('current-score').textContent =
+          Number(document.getElementById('current-score').textContent) + 1;
+        // attempts incr
+        document.getElementById('current-attempts').textContent =
+          Number(document.getElementById('current-attempts').textContent) + 1;
+        // tiles hidden
+        document.getElementById(clickedElement).classList.add('hidden');
+        document.getElementById(firstTileSelected[1]).classList.add('hidden');
+      } else {
+        // re-hide tiles
+        document.getElementById(clickedElement).classList.add('hidden');
+        document.getElementById(firstTileSelected[1]).classList.add('hidden');
+        // attempt incr
+        document.getElementById('current-attempts').textContent =
+          Number(document.getElementById('current-attempts').textContent) + 1;
+      }
+      // reset firstTileSelected
+      firstTileSelected = [];
+    } else {
+      firstTileSelected = [clickedImage, clickedElement];
+    }
+  }
+}
+
 initializeGame();
 displayTiles();
 
-console.log(tiles);
+// Listen for user clicking the tiles area and call response
+document.querySelector('.tiles').addEventListener('click', handleClickTile);
