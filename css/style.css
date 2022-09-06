@@ -96,6 +96,13 @@ main {
 
 .tiles div {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  height: 150px;
+  width: 150px;
+}
+
+.tile img {
+  height: 150px;
+  width: 150px;
 }
 
 /* GRID AREA FOR FOOTER */
