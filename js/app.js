@@ -1,10 +1,13 @@
 'use strict';
 
-// $(document).ready(function () {
-//   $('.flip-card').click(function () {
-//     $(this).toggleClass('hover');
+// $(document).ready(function() {  
+
+//   $('.tile').click(function() {
+//       $(this).toggleClass('hover');
 //   });
 // });
+
+
 
 let numberRows = 0;
 let numberColumns = 0;
