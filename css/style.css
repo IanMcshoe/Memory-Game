@@ -18,8 +18,8 @@ header,
 footer,
 main,
 nav {
-  background-color: steelblue;
-  color: #fff;
+  background-color: white;
+  color: black;
   padding: 20px;
   border: rgb(0, 0, 0) 1px solid;
 }
@@ -88,13 +88,15 @@ main {
     '. tile tile tile .';
 }
 
-.tile {
+/* .tile {
   border: solid thin black;
   grid-area: tile;
   justify-self: center;
+} */
+
+.tiles div {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-
-
 
 /* GRID AREA FOR FOOTER */
 
