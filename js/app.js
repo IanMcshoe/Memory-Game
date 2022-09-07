@@ -149,6 +149,7 @@ function displayTiles() {
   }
 }
 
+// Handle user clicks on tiles
 function handleClickTile(event) {
   // let clickedImage = event.target.alt;
   let clickedElement = event.target.parentNode.parentNode.id;
@@ -172,7 +173,7 @@ function handleClickTile(event) {
         // Increment score
         document.getElementById('current-score').textContent =
           Number(document.getElementById('current-score').textContent) + 1;
-        // Increment attempts
+        // Decrement attempts
         document.getElementById('current-attempts').textContent =
           Number(document.getElementById('current-attempts').textContent) - 1;
         // Hide matched tiles
@@ -183,10 +184,6 @@ function handleClickTile(event) {
             .classList.add('hide-shadow');
           firstTileSelected = [];
 
-          console.log(
-            numberTiles,
-            Number(document.getElementById('current-score').textContent) * 2
-          );
           if (
             numberTiles ==
             Number(document.getElementById('current-score').textContent) * 2
@@ -212,7 +209,7 @@ function handleClickTile(event) {
             .querySelector('.tiles')
             .addEventListener('click', handleClickTile);
         }, 1000);
-        // attempt increment
+        // attempt decrement
         document.getElementById('current-attempts').textContent =
           Number(document.getElementById('current-attempts').textContent) - 1;
       }
@@ -223,6 +220,7 @@ function handleClickTile(event) {
   }
 }
 
+// Handle user click on buttons
 function handleButtonClick(event) {
   let clickedElement = event.target.id;
   if (clickedElement == 'start-btn') {
@@ -246,6 +244,7 @@ function handleButtonClick(event) {
   }
 }
 
+// Store or retrieve data from local storage
 function accessLocalStorage(data, setOrGet) {
   if (setOrGet === 'set') {
     localStorage.setItem('highScore', JSON.stringify(data));
@@ -262,6 +261,7 @@ function accessLocalStorage(data, setOrGet) {
   }
 }
 
+// Wrap up game for user and check for/store high score
 function endGame() {
   // Remove listener for user clicking the tiles area and call response
   document
@@ -276,7 +276,8 @@ function endGame() {
   let currentScore = document.getElementById('current-attempts').textContent;
   let highScore = accessLocalStorage('', 'get');
   if (highScore < currentScore) {
-    let errCheck = accessLocalStorage(currentScore, 'set');
+    let errCheck = false;
+    errCheck = accessLocalStorage(currentScore, 'set');
 
     // Check to make sure set operation functioned properly
     if (!errCheck)
