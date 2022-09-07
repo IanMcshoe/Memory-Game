@@ -55,8 +55,9 @@ let tileImages2 = [
 
 // Initialize new game, randomly place images on game grid
 function initializeGame() {
-  // Unhide stats (score/attempts) div and hide Start button
+  // Unhide stats (score/attempts) div and Reset button, and hide Start button
   document.getElementById('start-btn').classList.add('hidden');
+  document.getElementById('reset-btn').classList.remove('hidden');
   document.querySelector('.stats').classList.remove('hidden');
 
   switch (numberTiles) {
@@ -300,6 +301,9 @@ document.querySelector('#high-score').textContent = accessLocalStorage(
 
 // Hide stats (score/attempts) div
 document.querySelector('.stats').classList.add('hidden');
+
+// Hide reset button
+document.getElementById('reset-btn').classList.add('hidden');
 
 // Ensure instructions are displayed
 document.getElementById('instructions').classList.remove('hidden');
