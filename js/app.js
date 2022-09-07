@@ -9,6 +9,28 @@ let positionColumns = [];
 let tiles = []; // Array that will hold the data for all the tiles currently in play
 let firstTileSelected = [];
 let tileImages = [
+  'breakfast-pix.png',
+  'bus-pix.png',
+  'bicycle-pix.png',
+  'cable-car-pix.png',
+  'canoe-pix.png',
+  'checking-pix.png',
+  'compass-pix.png',
+  'cruise-pix.png',
+  'desert-pix.png',
+  'distance-pix.png',
+  'flippers-pix.png',
+  'helicopter-pix.png',
+  'keycard-pix.png',
+  'luggage-pix.png',
+  'mountain-pix.png',
+  'plane-pix.png',
+  'scooter-pix.png',
+  'time-pix.png',
+  'train-pix.png',
+  'van-pix.png',
+];
+let tileImages2 = [
   'breakfast.png',
   'bus.png',
   'bicycle.png',
@@ -31,6 +53,7 @@ let tileImages = [
   'van.png',
 ];
 
+// Initialize new game, randomly place images on game grid
 function initializeGame() {
   // Unhide stats (score/attempts) div and hide Start button
   document.getElementById('start-btn').classList.add('hidden');
