@@ -1,11 +1,5 @@
 'use strict';
 
-// $(document).ready(function () {
-//   $('.tile').click(function () {
-//     $(this).toggleClass('hover');
-//   });
-// });
-
 let numberRows = 0;
 let numberColumns = 0;
 let numberTiles = 20;
@@ -147,13 +141,17 @@ function handleClickTile(event) {
       firstTileSelected.length !== 0 &&
       clickedElement !== firstTileSelected[1]
     ) {
+      // Remove listener for user clicking the tiles area and call response
+      document
+        .querySelector('.tiles')
+        .removeEventListener('click', handleClickTile);
       if (clickedImage == firstTileSelected[0]) {
         // Increment score
         document.getElementById('current-score').textContent =
           Number(document.getElementById('current-score').textContent) + 1;
         // Increment attempts
         document.getElementById('current-attempts').textContent =
-          Number(document.getElementById('current-attempts').textContent) + 1;
+          Number(document.getElementById('current-attempts').textContent) - 1;
         // Hide matched tiles
         setTimeout(() => {
           document.getElementById(clickedElement).classList.add('hide-shadow');
@@ -172,6 +170,10 @@ function handleClickTile(event) {
           ) {
             endGame();
           }
+          // Listen for user clicking the tiles area and call response
+          document
+            .querySelector('.tiles')
+            .addEventListener('click', handleClickTile);
         }, 1000);
       } else {
         // re-flip tiles
@@ -182,10 +184,14 @@ function handleClickTile(event) {
             .getElementById(firstTileSelected[1])
             .classList.remove('hover');
           firstTileSelected = [];
+          // Listen for user clicking the tiles area and call response
+          document
+            .querySelector('.tiles')
+            .addEventListener('click', handleClickTile);
         }, 1000);
         // attempt increment
         document.getElementById('current-attempts').textContent =
-          Number(document.getElementById('current-attempts').textContent) + 1;
+          Number(document.getElementById('current-attempts').textContent) - 1;
       }
       // reset firstTileSelected
     } else {
@@ -199,6 +205,11 @@ function handleButtonClick(event) {
   if (clickedElement == 'start-btn') {
     initializeGame();
     displayTiles();
+
+    //***************************************************************** */
+    // Ensure instructions and game over text is hidden
+    // document.getElementById('game-over').classList.add('hidden');
+    // document.getElementById('instructions').classList.add('hidden');
 
     // Listen for user clicking the tiles area and call response
     document.querySelector('.tiles').addEventListener('click', handleClickTile);
@@ -230,23 +241,47 @@ function accessLocalStorage(data, setOrGet) {
 }
 
 function endGame() {
-  console.log('Game Over!');
-  // Display Game Over
+  // Remove listener for user clicking the tiles area and call response
+  document
+    .querySelector('.tiles')
+    .removeEventListener('click', handleClickTile);
+
+  //********************************************************* */
+  // Display Game Over text
+  // document.getElementById('game-over').classList.remove('hidden');
+
   // Check high score -> notify it high score beat and store locally
-  // disable tiles click listener
+
+  let currentScore = document.getElementById('current-attempts').textContent;
+  let highScore = accessLocalStorage('', 'get');
+  if (highScore < currentScore) {
+    let errCheck = accessLocalStorage(currentScore, 'set');
+
+    // Check to make sure set operation functioned properly
+    if (!errCheck)
+      alert(
+        'ERROR: Something went wrong with setting the high score in local storage!'
+      );
+
+    alert('You got a new high score! Congratulations!!');
+
+    // Display new High Score
+    document.querySelector('#high-score').textContent = currentScore;
+  }
 }
 
 // Display Current High Score from Local Storage or 0 if none
-document.querySelector(
-  '.score'
-).textContent = `High-Score: ${accessLocalStorage('', 'get')}`;
-// document.querySelector('#high-score').textContent = accessLocalStorage('', 'get');
+document.querySelector('#high-score').textContent = accessLocalStorage(
+  '',
+  'get'
+);
 
 // Hide stats (score/attempts) div
 document.querySelector('.stats').classList.add('hidden');
 
-// Listen for user clicking the tiles area and call response
-// document.querySelector('.tiles').addEventListener('click', handleClickTile);
+//***************************************************************** */
+// Ensure instructions are displayed
+// document.getElementById('instructions').classList.remove('hidden');
 
 // Listen for user clicking a button
 document
