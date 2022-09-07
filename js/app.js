@@ -229,10 +229,9 @@ function handleButtonClick(event) {
     initializeGame();
     displayTiles();
 
-    //***************************************************************** */
     // Ensure instructions and game over text is hidden
-    // document.getElementById('game-over').classList.add('hidden');
-    // document.getElementById('instructions').classList.add('hidden');
+    document.getElementById('end-game').classList.add('hidden');
+    document.getElementById('instructions').classList.add('hidden');
 
     // Listen for user clicking the tiles area and call response
     document.querySelector('.tiles').addEventListener('click', handleClickTile);
@@ -269,9 +268,8 @@ function endGame() {
     .querySelector('.tiles')
     .removeEventListener('click', handleClickTile);
 
-  //********************************************************* */
   // Display Game Over text
-  // document.getElementById('game-over').classList.remove('hidden');
+  document.getElementById('end-game').classList.remove('hidden');
 
   // Check high score -> notify it high score beat and store locally
 
@@ -302,9 +300,8 @@ document.querySelector('#high-score').textContent = accessLocalStorage(
 // Hide stats (score/attempts) div
 document.querySelector('.stats').classList.add('hidden');
 
-//***************************************************************** */
 // Ensure instructions are displayed
-// document.getElementById('instructions').classList.remove('hidden');
+document.getElementById('instructions').classList.remove('hidden');
 
 // Listen for user clicking a button
 document
