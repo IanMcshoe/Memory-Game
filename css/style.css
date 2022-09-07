@@ -57,12 +57,12 @@ header {
   grid-template-rows: 1fr 1fr;
   grid-template-areas:
     'logo . score . stats'
-    '. . rules . start'
+    '. . instructions . start'
   ;
 }
 
 #instructions {
-  grid-area: rules;
+  grid-area: instructions;
   color:rgb(128,204,229);
   text-align: center;
   font-size: 17px;
@@ -70,7 +70,7 @@ header {
 
 }
 #end-game {
-  grid-area: rules;
+  grid-area: instructions;
   color:rgb(128,204,229);
   text-align: center;
   font-size: 17px;
