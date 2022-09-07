@@ -129,6 +129,9 @@ main h1 {
 }
 
 .tile {
+  /* background-image: url("https://bloodstainedritualofthenight.wiki.fextralife.com/file/Bloodstained-Ritual-of-The-Night/16-bit-coin-material-bloodstained-wiki-guide.png");
+  background-repeat: no-repeat;
+  background-size: cover; */
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   height: 150px;
   width: 150px;
@@ -282,7 +285,10 @@ footer {
 }
 
 .flip-card-front {
-  background-color: #bbb;
+  background-image: url("https://bloodstainedritualofthenight.wiki.fextralife.com/file/Bloodstained-Ritual-of-The-Night/16-bit-coin-material-bloodstained-wiki-guide.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-color: #bbb; */
   color: black;
 }
 
