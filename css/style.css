@@ -57,9 +57,11 @@ header {
   grid-template-rows: 1fr 1fr;
   grid-template-areas:
     'logo . score . stats'
-    '. . instructions . start'
+    '. instructions instructions instructions start'
+  
   ;
 }
+
 
 #instructions {
   grid-area: instructions;
