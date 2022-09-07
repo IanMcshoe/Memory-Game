@@ -69,7 +69,7 @@ header {
 .logo,
 .score,
 .stats {
-  border: solid 0px black;
+  border: solid 1px black;
 }
 
 .logo {
@@ -91,6 +91,30 @@ header {
   grid-area: stats;
   justify-self: right;
   align-self: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+  'matches current-score'
+  'attempts current-attempts'
+  ;
+}
+
+#matches {
+  grid-area: matches;
+}
+
+#attempts {
+  grid-area: attempts;
+}
+
+
+#current-score {
+  grid-area: current-score;
+}
+
+#current-attempts {
+  grid-area: current-attempts;
 }
 
 #start-btn {
