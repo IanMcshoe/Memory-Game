@@ -61,9 +61,18 @@ header {
   ;
 }
 
-#rules {
+#instructions {
   grid-area: rules;
+  color:rgb(128,204,229);
+  text-align: center;
+  font-size: 17px;
 
+}
+#end-game {
+  grid-area: rules;
+  color:rgb(128,204,229);
+  text-align: center;
+  font-size: 17px;
 }
 
 .logo {
