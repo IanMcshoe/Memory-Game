@@ -1,7 +1,6 @@
 /* GRID AREA FOR OVERALL PAGE LAYOUT*/
 
 body {
-  /* font-family: 'Open Sans', sans-serif; */
   font-family: 'Press Start 2P', cursive;
   font-size: 16px;
   height: 100vh;
@@ -11,7 +10,7 @@ body {
     'main main main main main'
     'footer footer footer footer footer';
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto 1fr 70px;
+  grid-template-rows: auto 1fr 30px;
 }
 
 h1 {
@@ -26,7 +25,7 @@ main,
 nav {
   background-color: rgb(215, 144, 238);
   color: rgb(227, 237, 249);
-  padding: 20px;
+  padding: 10px;
   border: rgb(0, 0, 0) 0px solid;
 }
 
@@ -71,7 +70,8 @@ header {
 }
 #end-game {
   grid-area: instructions;
-  color:rgb(128,204,229);
+  color: rgb(227,237,249);
+  padding-top: 100px;
   text-align: center;
   font-size: 17px;
   transform: scale(2, 3);
@@ -163,7 +163,6 @@ main h1 {
 }
 
 .tile {
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   height: 150px;
   width: 150px;
 }
@@ -281,7 +280,7 @@ button {
   }
 }
 
-/* GRID AREA FOR FOOTER */
+/* FOOTER */
 
 footer {
   text-align: center;
@@ -292,7 +291,7 @@ footer {
 .hidden {
   display: none;
 }
-
+/* Flip Animation */
 .flip-card-inner {
   position: relative;
   width: 100%;
@@ -300,7 +299,6 @@ footer {
   text-align: center;
   transition: transform 0.6s;
   transform-style: preserve-3d;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .tile.hover .flip-card-inner {
