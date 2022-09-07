@@ -1,13 +1,10 @@
 'use strict';
 
-// $(document).ready(function() {  
-
-//   $('.tile').click(function() {
-//       $(this).toggleClass('hover');
+// $(document).ready(function () {
+//   $('.tile').click(function () {
+//     $(this).toggleClass('hover');
 //   });
 // });
-
-
 
 let numberRows = 0;
 let numberColumns = 0;
@@ -127,17 +124,25 @@ function generateRandomPositionArray() {
 // Populate the tiles on the screen from the tiles array
 function displayTiles() {
   for (let tile of tiles) {
-    let currentTile = document.querySelector(`#${tile.tilePosition} img`);
+    let currentTile = document.querySelector(
+      `#${tile.tilePosition} .flip-card-back img`
+    );
     currentTile.src = tile.imagePath;
     currentTile.alt = tile.imageName;
   }
 }
 
 function handleClickTile(event) {
-  let clickedImage = event.target.alt;
-  let clickedElement = event.target.parentNode.id;
+  // let clickedImage = event.target.alt;
+  let clickedElement = event.target.parentNode.parentNode.id;
+  let clickedImage = document.querySelector(
+    `#${clickedElement} .flip-card-back img`
+  ).alt;
 
   if (typeof clickedElement == 'string') {
+    // Add hover class to make tile flip
+    document.getElementById(clickedElement).classList.add('hover');
+
     if (
       firstTileSelected.length !== 0 &&
       clickedElement !== firstTileSelected[1]
@@ -150,27 +155,39 @@ function handleClickTile(event) {
         document.getElementById('current-attempts').textContent =
           Number(document.getElementById('current-attempts').textContent) + 1;
         // Hide matched tiles
-        document.getElementById(clickedElement).classList.add('hide-shadow');
-        document
-          .getElementById(firstTileSelected[1])
-          .classList.add('hide-shadow');
-        // let currentTile = document.querySelector(`#${clickedElement} img`);
-        // let previousTile = document.querySelector(
-        //   `#${firstTileSelected[1]} img`
-        // );
-        // currentTile.src = 'https://via.placeholder.com/150x150/FFFFFF';
-        // currentTile.alt = '';
-        // previousTile.src = 'https://via.placeholder.com/150x150/FFFFFF';
-        // previousTile.alt = '';
+        setTimeout(() => {
+          document.getElementById(clickedElement).classList.add('hide-shadow');
+          document
+            .getElementById(firstTileSelected[1])
+            .classList.add('hide-shadow');
+          firstTileSelected = [];
+
+          console.log(
+            numberTiles,
+            Number(document.getElementById('current-score').textContent) * 2
+          );
+          if (
+            numberTiles ==
+            Number(document.getElementById('current-score').textContent) * 2
+          ) {
+            endGame();
+          }
+        }, 1000);
       } else {
         // re-flip tiles
+        setTimeout(() => {
+          document.getElementById(clickedElement).classList.remove('hover');
 
+          document
+            .getElementById(firstTileSelected[1])
+            .classList.remove('hover');
+          firstTileSelected = [];
+        }, 1000);
         // attempt increment
         document.getElementById('current-attempts').textContent =
           Number(document.getElementById('current-attempts').textContent) + 1;
       }
       // reset firstTileSelected
-      firstTileSelected = [];
     } else {
       firstTileSelected = [clickedImage, clickedElement];
     }
@@ -182,6 +199,9 @@ function handleButtonClick(event) {
   if (clickedElement == 'start-btn') {
     initializeGame();
     displayTiles();
+
+    // Listen for user clicking the tiles area and call response
+    document.querySelector('.tiles').addEventListener('click', handleClickTile);
   } else if (clickedElement == 'reset-btn') {
     if (
       confirm('Are you sure you want to reset the score and restart the game?')
@@ -209,6 +229,13 @@ function accessLocalStorage(data, setOrGet) {
   }
 }
 
+function endGame() {
+  console.log('Game Over!');
+  // Display Game Over
+  // Check high score -> notify it high score beat and store locally
+  // disable tiles click listener
+}
+
 // Display Current High Score from Local Storage or 0 if none
 document.querySelector(
   '.score'
@@ -219,7 +246,7 @@ document.querySelector(
 document.querySelector('.stats').classList.add('hidden');
 
 // Listen for user clicking the tiles area and call response
-document.querySelector('.tiles').addEventListener('click', handleClickTile);
+// document.querySelector('.tiles').addEventListener('click', handleClickTile);
 
 // Listen for user clicking a button
 document
