@@ -152,71 +152,75 @@ function displayTiles() {
 
 // Handle user clicks on tiles
 function handleClickTile(event) {
-  // let clickedImage = event.target.alt;
   let clickedElement = event.target.parentNode.parentNode.id;
-  let clickedImage = document.querySelector(
-    `#${clickedElement} .flip-card-back img`
-  ).alt;
 
-  if (typeof clickedElement == 'string') {
-    // Add hover class to make tile flip
-    document.getElementById(clickedElement).classList.add('hover');
+  if (clickedElement.split('-')[0] === 'pos') {
+    let clickedImage = document.querySelector(
+      `#${clickedElement} .flip-card-back img`
+    ).alt;
 
-    if (
-      firstTileSelected.length !== 0 &&
-      clickedElement !== firstTileSelected[1]
-    ) {
-      // Remove listener for user clicking the tiles area and call response
-      document
-        .querySelector('.tiles')
-        .removeEventListener('click', handleClickTile);
-      if (clickedImage == firstTileSelected[0]) {
-        // Increment score
-        document.getElementById('current-score').textContent =
-          Number(document.getElementById('current-score').textContent) + 1;
-        // Decrement attempts
-        document.getElementById('current-attempts').textContent =
-          Number(document.getElementById('current-attempts').textContent) - 1;
-        // Hide matched tiles
-        setTimeout(() => {
-          document.getElementById(clickedElement).classList.add('hide-shadow');
-          document
-            .getElementById(firstTileSelected[1])
-            .classList.add('hide-shadow');
-          firstTileSelected = [];
+    if (typeof clickedElement == 'string') {
+      // Add hover class to make tile flip
+      document.getElementById(clickedElement).classList.add('hover');
 
-          if (
-            numberTiles ==
-            Number(document.getElementById('current-score').textContent) * 2
-          ) {
-            endGame();
-          }
-          // Listen for user clicking the tiles area and call response
-          document
-            .querySelector('.tiles')
-            .addEventListener('click', handleClickTile);
-        }, 1000);
+      if (
+        firstTileSelected.length !== 0 &&
+        clickedElement !== firstTileSelected[1]
+      ) {
+        // Remove listener for user clicking the tiles area and call response
+        document
+          .querySelector('.tiles')
+          .removeEventListener('click', handleClickTile);
+        if (clickedImage == firstTileSelected[0]) {
+          // Increment score
+          document.getElementById('current-score').textContent =
+            Number(document.getElementById('current-score').textContent) + 1;
+          // Decrement attempts
+          document.getElementById('current-attempts').textContent =
+            Number(document.getElementById('current-attempts').textContent) - 1;
+          // Hide matched tiles
+          setTimeout(() => {
+            document
+              .getElementById(clickedElement)
+              .classList.add('hide-shadow');
+            document
+              .getElementById(firstTileSelected[1])
+              .classList.add('hide-shadow');
+            firstTileSelected = [];
+
+            if (
+              numberTiles ==
+              Number(document.getElementById('current-score').textContent) * 2
+            ) {
+              endGame();
+            }
+            // Listen for user clicking the tiles area and call response
+            document
+              .querySelector('.tiles')
+              .addEventListener('click', handleClickTile);
+          }, 1000);
+        } else {
+          // re-flip tiles
+          setTimeout(() => {
+            document.getElementById(clickedElement).classList.remove('hover');
+
+            document
+              .getElementById(firstTileSelected[1])
+              .classList.remove('hover');
+            firstTileSelected = [];
+            // Listen for user clicking the tiles area and call response
+            document
+              .querySelector('.tiles')
+              .addEventListener('click', handleClickTile);
+          }, 1000);
+          // attempt decrement
+          document.getElementById('current-attempts').textContent =
+            Number(document.getElementById('current-attempts').textContent) - 1;
+        }
+        // reset firstTileSelected
       } else {
-        // re-flip tiles
-        setTimeout(() => {
-          document.getElementById(clickedElement).classList.remove('hover');
-
-          document
-            .getElementById(firstTileSelected[1])
-            .classList.remove('hover');
-          firstTileSelected = [];
-          // Listen for user clicking the tiles area and call response
-          document
-            .querySelector('.tiles')
-            .addEventListener('click', handleClickTile);
-        }, 1000);
-        // attempt decrement
-        document.getElementById('current-attempts').textContent =
-          Number(document.getElementById('current-attempts').textContent) - 1;
+        firstTileSelected = [clickedImage, clickedElement];
       }
-      // reset firstTileSelected
-    } else {
-      firstTileSelected = [clickedImage, clickedElement];
     }
   }
 }
