@@ -2,6 +2,15 @@
 
 A fun game to test and enhance your memory abilities!
 
+## Problem Domain
+
+- This application uses the fun of playing a game to help people improve mental capabilities and memory.
+
+- This is accomplished by having the player recall where images are hidden on a grid of concealed items, in an attempt to identify matching pairs.
+
+- The user receives a score according to their level of success, giving them an opportunity to beat previous high scores and see their memory improve over time.
+
+
 ## Creators
 
 - Chris Fanucchi
