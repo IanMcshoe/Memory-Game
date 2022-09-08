@@ -147,6 +147,7 @@ function displayTiles() {
     );
     currentTile.src = tile.imagePath;
     currentTile.alt = tile.imageName;
+    currentTile.classList.add('hidden');
   }
 }
 
@@ -162,6 +163,9 @@ function handleClickTile(event) {
     if (typeof clickedElement == 'string') {
       // Add hover class to make tile flip
       document.getElementById(clickedElement).classList.add('hover');
+      document
+        .querySelector(`#${clickedElement} .flip-card-back img`)
+        .classList.remove('hidden');
 
       if (
         firstTileSelected.length !== 0 &&
@@ -171,6 +175,7 @@ function handleClickTile(event) {
         document
           .querySelector('.tiles')
           .removeEventListener('click', handleClickTile);
+
         if (clickedImage == firstTileSelected[0]) {
           // Increment score
           document.getElementById('current-score').textContent =
@@ -178,6 +183,7 @@ function handleClickTile(event) {
           // Decrement attempts
           document.getElementById('current-attempts').textContent =
             Number(document.getElementById('current-attempts').textContent) - 1;
+
           // Hide matched tiles
           setTimeout(() => {
             document
@@ -186,6 +192,7 @@ function handleClickTile(event) {
             document
               .getElementById(firstTileSelected[1])
               .classList.add('hide-shadow');
+
             firstTileSelected = [];
 
             if (
@@ -198,6 +205,12 @@ function handleClickTile(event) {
             document
               .querySelector('.tiles')
               .addEventListener('click', handleClickTile);
+            document
+              .querySelector(`#${clickedElement} .flip-card-back img`)
+              .classList.add('hidden');
+            document
+              .querySelector(`#${firstTileSelected[1]} .flip-card-back img`)
+              .classList.add('hidden');
           }, 1000);
         } else {
           // re-flip tiles
@@ -212,6 +225,16 @@ function handleClickTile(event) {
             document
               .querySelector('.tiles')
               .addEventListener('click', handleClickTile);
+
+            // Delay the hiding of the img tag until tile flips back over
+            setTimeout(() => {
+              document
+                .querySelector(`#${clickedElement} .flip-card-back img`)
+                .classList.add('hidden');
+              document
+                .querySelector(`#${firstTileSelected[1]} .flip-card-back img`)
+                .classList.add('hidden');
+            }, 500);
           }, 1000);
           // attempt decrement
           document.getElementById('current-attempts').textContent =
