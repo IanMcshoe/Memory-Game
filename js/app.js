@@ -255,10 +255,6 @@ function handleButtonClick(event) {
     initializeGame();
     displayTiles();
 
-    // Ensure instructions and game over text is hidden
-    document.getElementById('end-game').classList.add('hidden');
-    document.getElementById('instructions').classList.add('hidden');
-
     // Listen for user clicking the tiles area and call response
     document.querySelector('.tiles').addEventListener('click', handleClickTile);
   } else if (clickedElement == 'reset-btn') {
@@ -331,9 +327,6 @@ document.querySelector('.stats').classList.add('hidden');
 
 // Hide reset button
 document.getElementById('reset-btn').classList.add('hidden');
-
-// Ensure instructions are displayed
-document.getElementById('instructions').classList.remove('hidden');
 
 // Listen for user clicking a button
 document
