@@ -2,6 +2,7 @@
 
 body {
   font-family: 'Press Start 2P', cursive;
+  background-image: url(https://wallpaperaccess.com/full/882411.jpg);
   font-size: 16px;
   height: 100vh;
   /* overflow: hidden; */
@@ -25,7 +26,7 @@ header,
 footer,
 main,
 nav {
-  background-color: rgb(215, 144, 238);
+  /* background-color: rgb(215, 144, 238); */
   color: rgb(227, 237, 249);
   padding: 10px;
   border: rgb(0, 0, 0) 0px solid;
@@ -37,7 +38,7 @@ header {
 
 main {
   grid-area: main;
-  background-image: url(https://wallpaperaccess.com/full/882411.jpg);
+  /* background-image: url(https://wallpaperaccess.com/full/882411.jpg); */
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -276,7 +277,7 @@ main h1 {
 /* FOOTER */
 
 footer {
-  background-color: #231f55;
+  background-color: transparent;
   color: #e3edf9;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -290,10 +291,13 @@ footer {
   grid-area: copy;
   justify-self: left;
   align-self: center;
+  margin-left: 20px;
+  line-height: 1.9em;
 }
 
 #footer-navi {
   grid-area: navi;
+  margin-right: 20px;
 }
 
 #footer-navi li {
@@ -301,6 +305,15 @@ footer {
   justify-content: right;
   text-align: right;
   line-height: 1.5em;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: rgb(215, 144, 237);
 }
 
 .hidden {
