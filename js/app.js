@@ -8,6 +8,7 @@ let positionRows = [];
 let positionColumns = [];
 let tiles = []; // Array that will hold the data for all the tiles currently in play
 let firstTileSelected = [];
+let foundTiles = [];
 let tileImages = [
   'breakfast-pix.png',
   'bus-pix.png',
@@ -160,7 +161,10 @@ function handleClickTile(event) {
       `#${clickedElement} .flip-card-back img`
     ).alt;
 
-    if (typeof clickedElement == 'string') {
+    if (
+      typeof clickedElement == 'string' &&
+      !foundTiles.includes(clickedElement)
+    ) {
       // Add hover class to make tile flip
       document.getElementById(clickedElement).classList.add('hover');
       document
@@ -193,8 +197,6 @@ function handleClickTile(event) {
               .getElementById(firstTileSelected[1])
               .classList.add('hide-shadow');
 
-            firstTileSelected = [];
-
             if (
               numberTiles ==
               Number(document.getElementById('current-score').textContent) * 2
@@ -211,6 +213,11 @@ function handleClickTile(event) {
             document
               .querySelector(`#${firstTileSelected[1]} .flip-card-back img`)
               .classList.add('hidden');
+
+            // Push capture matched tiles to foundTiles array
+            foundTiles.push(clickedElement);
+            foundTiles.push(firstTileSelected[1]);
+            firstTileSelected = [];
           }, 1000);
         } else {
           // re-flip tiles
@@ -220,22 +227,21 @@ function handleClickTile(event) {
             document
               .getElementById(firstTileSelected[1])
               .classList.remove('hover');
-            firstTileSelected = [];
+          }, 1000);
+          // Delay the hiding of the img tag until tile flips back over
+          setTimeout(() => {
             // Listen for user clicking the tiles area and call response
             document
               .querySelector('.tiles')
               .addEventListener('click', handleClickTile);
-
-            // Delay the hiding of the img tag until tile flips back over
-            setTimeout(() => {
-              document
-                .querySelector(`#${clickedElement} .flip-card-back img`)
-                .classList.add('hidden');
-              document
-                .querySelector(`#${firstTileSelected[1]} .flip-card-back img`)
-                .classList.add('hidden');
-            }, 500);
-          }, 1000);
+            document
+              .querySelector(`#${clickedElement} .flip-card-back img`)
+              .classList.add('hidden');
+            document
+              .querySelector(`#${firstTileSelected[1]} .flip-card-back img`)
+              .classList.add('hidden');
+            firstTileSelected = [];
+          }, 1500);
           // attempt decrement
           document.getElementById('current-attempts').textContent =
             Number(document.getElementById('current-attempts').textContent) - 1;
