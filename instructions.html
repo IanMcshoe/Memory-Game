@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./css/reset.css">
+        <link rel="stylesheet" href="./css/style.css">
+    
+        <title>Memory Game</title>
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <h1>MEMORY GAME</h1>
+            </div>
+            <div class="score">
+                <label>High-Score</label><p id="high-score">0</p>
+            </div>
+                <p id="end-game" class="hidden">Game over!</p>
+            <div class="stats">
+                <p id="matches">Matches</p>
+                <p id="current-score">0</p>
+                <p id="attempts">Attempts</p>
+                <p id="current-attempts">100</p>
+            </div>
+            <div id="buttons">
+                <button class="glow-on-hover" type="button" id="start-btn"> START </button>
+    
+                <button class="glow-on-hover" type="button" id="reset-btn"> RESET </button>
+            </div>
+        </header>
+
+        <main>
+            <div class="rules-page">
+            <p id="instructions">Click the tiles to reveal them. Match two tiles to increase your score. Selecting two tiles is one
+                attempt. Good luck, may the force be with you! </p>
+                </div>
+        </main>
+        <footer>
+            &copy; This website was developed by Chris Fanucchi, Mathew Torres, Ian Forrester, and Erik Dodd in 2022.
+            <script src="./js/app.js"></script>
+        </footer>
+        </body>
+</html>
