@@ -319,3 +319,16 @@ footer {
 .flip-card-back {
   transform: rotateY(180deg);
 }
+
+/* Rules page */
+
+.rules-page {
+  grid-area: h1;
+  font-size: 50px;
+  justify-self: center;
+}
+
+#instructions {
+  font-size: 50px;
+  line-height: 100px;
+}
