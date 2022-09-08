@@ -4,7 +4,7 @@ body {
   font-family: 'Press Start 2P', cursive;
   font-size: 16px;
   height: 100vh;
-  overflow: hidden;
+  /* overflow: hidden; */
   display: grid;
   grid-template-areas:
     'header header header header header'
@@ -12,7 +12,7 @@ body {
     'footer footer footer footer footer';
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: auto 1fr auto;
-  
+
 }
 
 h1 {
@@ -59,22 +59,23 @@ header {
   grid-template-areas:
     'logo . score . stats'
     '. instructions instructions instructions start'
-  
+
   ;
 }
 
 
 #instructions {
   grid-area: instructions;
-  color:rgb(128,204,229);
+  color: rgb(128, 204, 229);
   text-align: center;
   font-size: 17px;
   line-height: 30px;
 
 }
+
 #end-game {
   grid-area: instructions;
-  color: rgb(227,237,249);
+  color: rgb(227, 237, 249);
   padding-top: 100px;
   text-align: center;
   font-size: 17px;
@@ -82,6 +83,7 @@ header {
   line-height: 30px;
   transition: 1.0s;
 }
+
 #high-score {
   text-align: center;
 }
@@ -274,14 +276,37 @@ main h1 {
 /* FOOTER */
 
 footer {
-  text-align: center;
   background-color: #231f55;
   color: #e3edf9;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    'copy copy copy copy navi'
+  ;
+}
+
+#copyright {
+  grid-area: copy;
+  justify-self: left;
+  align-self: center;
+}
+
+#footer-navi {
+  grid-area: navi;
+}
+
+#footer-navi li {
+  justify-self: right;
+  justify-content: right;
+  text-align: right;
+  line-height: 1.5em;
 }
 
 .hidden {
   display: none;
 }
+
 /* Flip Animation */
 .flip-card-inner {
   position: relative;
