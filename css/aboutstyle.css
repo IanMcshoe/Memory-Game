@@ -1,0 +1,293 @@
+/* Grid area for layout*/
+
+body {
+  font-family: 'Press Start 2P', cursive;
+  background-image: url(https://wallpaperaccess.com/full/882411.jpg);
+  font-size: 16px;
+  height: 100vh;
+  display: grid;
+  grid-template-areas:
+    'header header'
+    'main main'
+    'footer footer';
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr 150px;
+
+}
+
+h1 {
+  font-family: 'Press Start 2P', cursive;
+  font-weight: 300;
+  font-size: 24px;
+}
+
+header,
+footer,
+main,
+nav {
+  color: rgb(227, 237, 249);
+  padding: 10px;
+  border: rgb(0, 0, 0) 0px solid;
+}
+
+header {
+  grid-area: header;
+}
+
+main {
+  grid-area: main;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+
+footer {
+  grid-area: footer;
+}
+
+/* Grid area for Header*/
+
+
+/* Grid area for Main*/
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 15px;
+  grid-template-areas:
+    'h1 h1 h1 h1'
+    'chris chris chris chris'
+    'erik erik erik erik'
+    'ian ian ian ian'
+    'mat mat mat mat'
+  ;
+}
+
+.chris {
+  grid-area: chris;
+  display: grid;
+  margin-bottom: 50px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    'img name . .'
+    'img bio bio bio'
+  ;
+}
+
+.chris h2 {
+  grid-area: name;
+  color: white;
+  align-self: center;
+  justify-self: left;
+  background-color: black;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  padding: 10px;
+  padding-left: 25px;
+}
+
+.chris img {
+  grid-area: img;
+  height: 250px;
+  width: 270px;
+  justify-self: center;
+  align-self: center;
+  border-radius: 50%;
+  outline: 4px solid black;
+}
+
+.chris p {
+  grid-area: bio;
+  align-self: center;
+  padding: 25px;
+  color: white;
+  background-color: black;
+  border-radius: 10px;
+  line-height: 1.3em;
+}
+
+
+.erik {
+  grid-area: erik;
+  display: grid;
+  margin-bottom: 50px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    'img name . .'
+    'img bio bio bio'
+}
+
+.erik h2 {
+  grid-area: name;
+  color: white;
+  align-self: center;
+  justify-self: left;
+  background-color: black;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  padding: 10px;
+  padding-left: 25px;
+}
+
+.erik img {
+  grid-area: img;
+  height: 250px;
+  width: 270px;
+  justify-self: center;
+  align-self: center;
+  border-radius: 50%;
+  outline: 4px solid black;
+}
+
+.erik p {
+  grid-area: bio;
+  align-self: center;
+  padding: 25px;
+  color: white;
+  background-color: black;
+  border-radius: 10px;
+  line-height: 1.3em;
+}
+
+
+.ian {
+  grid-area: ian;
+  display: grid;
+  margin-bottom: 50px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    'img name . .'
+    'img bio bio bio'
+}
+
+.ian h2 {
+  grid-area: name;
+  color: white;
+  align-self: center;
+  justify-self: left;
+  background-color: black;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  padding: 10px;
+  padding-left: 25px;
+
+}
+
+.ian img {
+  grid-area: img;
+  height: 250px;
+  width: 270px;
+  justify-self: center;
+  align-self: center;
+  border-radius: 50%;
+  outline: 4px solid black;
+}
+
+.ian p {
+  grid-area: bio;
+  align-self: center;
+  padding: 25px;
+  color: white;
+  background-color: black;
+  border-radius: 10px;
+  line-height: 1.3em;
+  ;
+}
+
+
+.mat {
+  grid-area: mat;
+  display: grid;
+  margin-bottom: 50px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    'img name . .'
+    'img bio bio bio'
+}
+
+.mat h2 {
+  grid-area: name;
+  color: white;
+  align-self: center;
+  justify-self: left;
+  background-color: black;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  padding: 10px;
+  padding-left: 25px;
+}
+
+.mat img {
+  grid-area: img;
+  height: 250px;
+  width: 270px;
+  justify-self: center;
+  align-self: center;
+  border-radius: 50%;
+  outline: 4px solid black;
+}
+
+.mat p {
+  grid-area: bio;
+  align-self: center;
+  padding: 25px;
+  color: white;
+  background-color: black;
+  border-radius: 10px;
+  line-height: 1.3em;
+}
+
+
+/* Grid area for Footer*/
+
+/* FOOTER */
+
+footer {
+  background-color: rgb(35, 31, 85);
+  color: #e3edf9;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    'copy copy copy copy navi'
+  ;
+}
+
+#copyright {
+  grid-area: copy;
+  justify-self: left;
+  align-self: center;
+  margin-left: 20px;
+  line-height: 1.9em;
+}
+
+#footer-navi {
+  grid-area: navi;
+  margin-right: 20px;
+}
+
+#footer-navi li {
+  justify-self: right;
+  justify-content: right;
+  text-align: right;
+  line-height: 1.5em;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: rgb(215, 144, 237);
+}
+
+.hidden {
+  display: none;
+}
