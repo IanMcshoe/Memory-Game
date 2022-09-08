@@ -4,6 +4,7 @@ body {
   font-family: 'Press Start 2P', cursive;
   font-size: 16px;
   height: 100vh;
+  overflow: hidden;
   display: grid;
   grid-template-areas:
     'header header header header header'
@@ -11,6 +12,7 @@ body {
     'footer footer footer footer footer';
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: auto 1fr auto;
+  
 }
 
 h1 {
