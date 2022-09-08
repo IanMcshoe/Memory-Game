@@ -5,14 +5,13 @@ body {
   background-image: url(https://wallpaperaccess.com/full/882411.jpg);
   font-size: 16px;
   height: 100vh;
-  /* overflow: hidden; */
   display: grid;
   grid-template-areas:
     'header header header header header'
     'main main main main main'
     'footer footer footer footer footer';
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto 1fr 150px;
 
 }
 
@@ -26,7 +25,6 @@ header,
 footer,
 main,
 nav {
-  /* background-color: rgb(215, 144, 238); */
   color: rgb(227, 237, 249);
   padding: 10px;
   border: rgb(0, 0, 0) 0px solid;
@@ -38,7 +36,6 @@ header {
 
 main {
   grid-area: main;
-  /* background-image: url(https://wallpaperaccess.com/full/882411.jpg); */
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -53,14 +50,12 @@ footer {
 
 header {
   display: grid;
-  background-color: rgb(28, 36, 108);
   border-bottom: solid 0px rgb(128, 240, 235);
   grid-template-columns: 200px 1fr 1fr 1fr 200px;
   grid-template-rows: 1fr 1fr;
   grid-template-areas:
     'logo . score . stats'
     '. instructions instructions instructions start'
-
   ;
 }
 
@@ -277,7 +272,7 @@ main h1 {
 /* FOOTER */
 
 footer {
-  background-color: transparent;
+  background-color: rgb(35,31,85);
   color: #e3edf9;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
