@@ -40,6 +40,7 @@ main {
   grid-area: main;
   background-color: rgb(27, 36, 108);
   background-image: url(https://wallpaperaccess.com/full/882411.jpg);
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
 }

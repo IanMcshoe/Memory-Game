@@ -304,11 +304,11 @@ footer {
 
 a {
   text-decoration: none;
-  color: white;
+  color: rgb(215, 144, 237);
 }
 
 a:hover {
-  color: rgb(215, 144, 237);
+  color: #e3edf9;
 }
 
 .hidden {
