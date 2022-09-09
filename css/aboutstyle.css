@@ -2,7 +2,7 @@
 
 body {
   font-family: 'Press Start 2P', cursive;
-  background-image: url(https://wallpaperaccess.com/full/882411.jpg);
+  /* background-image: url(https://wallpaperaccess.com/full/882411.jpg); */
   font-size: 16px;
   height: 100vh;
   display: grid;
@@ -19,6 +19,7 @@ h1 {
   font-family: 'Press Start 2P', cursive;
   font-weight: 300;
   font-size: 24px;
+  margin-top: 26px;
 }
 
 header,
@@ -32,13 +33,15 @@ nav {
 
 header {
   grid-area: header;
+  background-color: rgb(27, 36, 108);
 }
 
 main {
   grid-area: main;
+  background-color: rgb(27, 36, 108);
+  background-image: url(https://wallpaperaccess.com/full/882411.jpg);
   background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+  background-position: bottom;
 }
 
 
@@ -46,7 +49,6 @@ footer {
   grid-area: footer;
 }
 
-/* Grid area for Header*/
 
 
 /* Grid area for Main*/
@@ -68,6 +70,7 @@ main {
 .chris {
   grid-area: chris;
   display: grid;
+  margin-top: 50px;
   margin-bottom: 50px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: auto auto;
@@ -87,11 +90,12 @@ main {
   margin-bottom: 15px;
   padding: 10px;
   padding-left: 25px;
+  padding-right: 25px;
 }
 
 .chris img {
   grid-area: img;
-  height: 250px;
+  height: 270px;
   width: 270px;
   justify-self: center;
   align-self: center;
@@ -131,11 +135,12 @@ main {
   margin-bottom: 15px;
   padding: 10px;
   padding-left: 25px;
+  padding-right: 25px;
 }
 
 .erik img {
   grid-area: img;
-  height: 250px;
+  height: 270px;
   width: 270px;
   justify-self: center;
   align-self: center;
@@ -175,12 +180,13 @@ main {
   margin-bottom: 15px;
   padding: 10px;
   padding-left: 25px;
+  padding-right: 25px;
 
 }
 
 .ian img {
   grid-area: img;
-  height: 250px;
+  height: 270px;
   width: 270px;
   justify-self: center;
   align-self: center;
@@ -221,11 +227,12 @@ main {
   margin-bottom: 15px;
   padding: 10px;
   padding-left: 25px;
+  padding-right: 25px;
 }
 
 .mat img {
   grid-area: img;
-  height: 250px;
+  height: 270px;
   width: 270px;
   justify-self: center;
   align-self: center;
@@ -245,8 +252,6 @@ main {
 
 
 /* Grid area for Footer*/
-
-/* FOOTER */
 
 footer {
   background-color: rgb(35, 31, 85);
